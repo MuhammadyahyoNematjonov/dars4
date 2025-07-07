@@ -21,12 +21,12 @@ services:
     ports:  
       - "3005:3000"
     environment:
-      - DATABASE_URL: "postgresql://postgres:12345@db:5432/dars4?schema=public"
+      DATABASE_URL: "postgresql://postgres:12345@db:5432/dars4?schema=public"  # ✅ to‘g‘ri format
     depends_on:
       - db
     command: >
       sh -c "
-        npmx prisma generate &&
+        npx prisma generate &&
         npx prisma migrate deploy &&
         npm run start:prod
       "
